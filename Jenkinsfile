@@ -1,13 +1,12 @@
-pipeline {
   agent any
   stages {
     stage('Test') {
-      agent any
+      agent {
+        node {
+          label 'docker'
+        }
+
+      }
       steps {
         sh 'node --version'
         sh 'svn --version'
-      }
-    }
-
-  }
-}
